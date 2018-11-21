@@ -30,3 +30,34 @@
     transform: rotate(360deg);
   }
 }
+
+#log-out-btn{
+  margin-left: 10%;
+  margin-right: 2%;
+
+}
+
+#post-image-size {
+  width: 70%  !important;
+  height: 70% !important;
+}
+
+#image-post-carousel{
+  margin-left: 15%!important;
+  margin-right: 15%!important;
+  margin-bottom: 2%;
+}
+
+#poster-info{
+  margin-left: 7% !important;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  color: white;
+  font-weight: bold;
+}
+
+.flex-row-sb {
+  display: flex !important;
+  justify-content: space-between;
+}
+
