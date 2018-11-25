@@ -49,15 +49,31 @@
 }
 
 #poster-info{
-  margin-left: 7% !important;
+  padding-left: 10% !important;
   margin-top: 1%;
   margin-bottom: 1%;
   color: white;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .flex-row-sb {
   display: flex !important;
   justify-content: space-between;
 }
+
+#ip5 {
+    border-radius: 25px;
+    
+    /*bs-light: #F8F9FA */
+    /*bs-danger: #D93749 */
+    border: 1px solid #D93749;
+    padding: 15px; 
+    width: 80%;
+    /* height: 30px;   */
+} 
+
+textarea {
+   font-size: 13px !important;
+}
+
 
