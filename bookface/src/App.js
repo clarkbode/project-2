@@ -4,6 +4,7 @@ import drake from './Assets/drake.jpeg';
 import TaylorOne from './Assets/TaylorSwift.jpeg';
 import TaylorTwo from './Assets/TaylorSwiftTwo.jpg';
 import James from './Assets/Sketch.jpg';
+import NoPhotoSelected from './Assets/NoPhotoSelectediOS_2x.png';
 import {Link} from 'react-router-dom';
 import './App.css';
 import logo from './logo.svg';
@@ -13,6 +14,68 @@ class App extends Component {
   render() {
     return (
       <> 
+        {/**Modal/Popup Uploading Picture**/}
+          <div class="modal" tabindex="-1" role="dialog" id="upload-picture-modal">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Upload Picture</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div className="card" Style="width: 15rem;">
+                        <img className="card-img-top" src={NoPhotoSelected} alt="Card image cap"/>
+                          <div class="card-body">
+                            <form>
+                              <div class="form-group ">
+                                  <input type="file" class="" id="exampleFormControlFile1"/>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                        <div>
+                          <ul className= "list-group list-group-flush" >
+                              <li className="list-group-item flex-row-sb">
+                                <textarea className="form-control" type="text" rows="1" id="picture-post-dialog"></textarea>
+                              </li> 
+                          </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-dismiss="modal">Upload</button>
+                    </div>
+                  </div>
+                </div>
+          </div>
+
+        {/**Modal/Popup Posting a Comment**/} 
+          <div class="modal" tabindex="-1" role="dialog" id="post-text-modal">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Compose What is in your mind...</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <ul className= "list-group list-group-flush" >
+                        <li className="list-group-item flex-row-sb">
+                          <textarea className="form-control" type="text" rows="1" id="posting-text-modal"></textarea>
+                        </li> 
+                    </ul>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Post</button>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+        {/**Modal/Popup for Posting Comments**/}
         <div className="modal fade" id="post-commnet-modal" tabIndex="-1" role="dialog" aria-labelledby="post-commnet-modal-Title" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered" role="document">
                 <div className="modal-content">
@@ -75,7 +138,7 @@ class App extends Component {
       <div className="">
           <div className="navbar navbar-light bg-danger flex-row-sb mt-1 mb-1">
               <div className=""> 
-                <h1>(BF:-)</h1> 
+                <h1>BookFace(BF)</h1> 
               </div>
               <div> 
                 <img Style="border-radius: 50%; width: 20%; height: 20%; align-items: right; border-style: solid; border-color: black;" src={drake} alt="Avatar" align="right" ></img>
@@ -107,8 +170,8 @@ class App extends Component {
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Create 
                       </a>
                     <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                      <a className="dropdown-item" href="#"> Upload</a>
-                      <a className="dropdown-item" href="#">Compose</a>
+                      <a className="dropdown-item" data-toggle="modal" data-target="#upload-picture-modal" > Upload</a>
+                      <a className="dropdown-item" data-toggle="modal" data-target="#post-text-modal" >Compose</a>
                     </div>
                   </div>
                 </li>
@@ -151,9 +214,11 @@ class App extends Component {
                           Likes &nbsp; <span className="badge badge-danger">120</span>
                           <span className="sr-only">unread messages</span>
                       </button>
-                      <button 
-                          type="button" className="btn btn-danger" data-toggle="modal" data-target="#post-commnet-modal"> 
-                          Say
+                      <button type="button" className="btn btn-light" id="posting-comment" disabled> 
+                          I am currently at the UTA Campus
+                      </button>
+                      <button type="button" className="btn btn-danger" data-toggle="modal" data-target="#post-commnet-modal"> 
+                          Say!
                       </button>
                     </div>
                 </div>
@@ -178,9 +243,12 @@ class App extends Component {
                           Likes &nbsp; <span className="badge badge-danger">120</span>
                           <span className="sr-only">unread messages</span>
                       </button>
+                      <button type="button" className="btn btn-light" id="posting-comment" disabled> 
+                          I am currently at the UTA Campus
+                      </button>
                       <button 
                           type="button" className="btn btn-danger" data-toggle="modal" data-target="#post-commnet-modal"> 
-                          Say
+                          Say!
                       </button>
                     </div>
                 </div>
@@ -205,9 +273,12 @@ class App extends Component {
                             Likes &nbsp; <span className="badge badge-danger">120</span>
                             <span className="sr-only">unread messages</span>
                         </button>
+                        <button type="button" className="btn btn-light" id="posting-comment" disabled> 
+                          I am currently at the UTA Campus
+                      </button>
                         <button 
                             type="button" className="btn btn-danger" data-toggle="modal" data-target="#post-commnet-modal"> 
-                            Say
+                            Say!
                         </button>
                     </div>
                   </div> 
@@ -232,9 +303,12 @@ class App extends Component {
                               Likes &nbsp; <span className="badge badge-danger">120</span>
                               <span className="sr-only">unread messages</span>
                           </button>
+                          <button type="button" className="btn btn-light" id="posting-comment" disabled> 
+                          I am currently at the UTA Campus
+                          </button> 
                           <button 
                               type="button" className="btn btn-danger" data-toggle="modal" data-target="#post-commnet-modal"> 
-                              Say
+                              Say!
                           </button>
                         </div>
                     </div>
