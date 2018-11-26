@@ -8,11 +8,39 @@ import {Link} from 'react-router-dom';
 import './App.css';
 import logo from './logo.svg';
 import './App.css';
+
+// handles the navigation to different components
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+import { Home } from './Components/Home/Home.component';
+import { Profile } from './Components/Profile/Profile.component';
+import { Friends } from './Components/Friends/Friends.component';
+import { Upload } from './Components/Upload/Upload.component';
+import { Compose } from './Components/Compose/Compose.component';
+import { LogOut } from './Components/LogOut/LogOut.component';
+import { Setting } from './Components/Setting/Setting.component';
 class App extends Component {
   
   render() {
     return (
-      <> 
+      <BrowserRouter>
+        <>
+          {/* <AppNav /> */}
+          <div id="main-content-container">
+            <Switch>
+              <Route path="/home" component={Home} />
+              <Route path="/profile" component={Profile} />
+              <Route path="/friends" component={Friends} />
+              <Route path="/upload" component={Upload} />
+              <Route path="/compose" component={Compose} />
+              <Route path="/logout" component={LogOut} />
+              <Route path="/setting" component={Setting} />
+
+              {/* default */}
+              {/* <Route component={Home} /> */}
+
+            </Switch>
+          </div>
         <div className="modal fade" id="post-commnet-modal" tabIndex="-1" role="dialog" aria-labelledby="post-commnet-modal-Title" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered" role="document">
                 <div className="modal-content">
@@ -90,15 +118,15 @@ class App extends Component {
               
               <ul className="navbar-nav mr-auto">
                 <li className="nav-item" id="log-out-btn">
-                    <a className="btn btn-outline-danger" href="#" role="button" id="" 
+                    <a className="btn btn-outline-danger" href="/home" role="button" id="" 
                     aria-haspopup="true" aria-expanded="false"> /\ Home </a>
                 </li> 
                 <li className="nav-item" id="log-out-btn">
-                    <a className="btn btn-outline-danger" href="#" role="button" id="" 
+                    <a className="btn btn-outline-danger" href="/profile" role="button" id="" 
                     aria-haspopup="true" aria-expanded="false"> Profile </a>
                 </li>
                 <li className="nav-item" id="log-out-btn">
-                  <a className="btn btn-outline-danger" href="#" role="button" id="" 
+                  <a className="btn btn-outline-danger" href="/friends" role="button" id="" 
                     aria-haspopup="true" aria-expanded="false"> Friends </a>
                 </li>
                 <li className="nav-item" id="log-out-btn">
@@ -107,8 +135,8 @@ class App extends Component {
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Create 
                       </a>
                     <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                      <a className="dropdown-item" href="#"> Upload</a>
-                      <a className="dropdown-item" href="#">Compose</a>
+                      <a className="dropdown-item" href="/upload"> Upload</a>
+                      <a className="dropdown-item" href="/compose">Compose</a>
                     </div>
                   </div>
                 </li>
@@ -122,8 +150,8 @@ class App extends Component {
                 <a className="btn btn-danger dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 </a>
                 <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <a className="dropdown-item" href="#">Log Out</a>
-                  <a className="dropdown-item" href="#">Setting</a>
+                  <a className="dropdown-item" href="/logout">Log Out</a>
+                  <a className="dropdown-item" href="/setting">Setting</a>
                 </div>
               </div>
               </div> 
@@ -241,7 +269,8 @@ class App extends Component {
                 </li> 
               </ul> 
             </div>
-        </> 
+        </>
+        </BrowserRouter> 
       );
     }
   }
