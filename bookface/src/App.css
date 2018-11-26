@@ -76,4 +76,40 @@ textarea {
    font-size: 13px !important;
 }
 
+#posting-comment {
+  border-radius: 25px;
+  
+  /*bs-light: #F8F9FA */
+  /*bs-danger: #D93749 */
+  border: 1px solid #D93749;
+  font-size: 13px !important;
+  padding: 10px; 
+  width: 60%;
+  height: 40px;  
+  overflow: scroll;
+} 
+
+#posting-text-modal {
+  border-radius: 25px;
+  
+  /*bs-light: #F8F9FA */
+  /*bs-danger: #D93749 */
+  border: 1px solid #D93749;
+  padding: 15px; 
+  width: 100%;
+  /* height: 30px;   */
+}
+
+#picture-post-dialog {
+  border-radius: 25px;
+  
+  /*bs-light: #F8F9FA */
+  /*bs-danger: #D93749 */
+  border: 1px solid #D93749;
+  padding: 15px; 
+  width: 100%;
+  /* height: 30px;   */
+} 
+
+
 
