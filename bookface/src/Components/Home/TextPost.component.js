@@ -12,7 +12,7 @@ render(){
                <div className="card mt-3 mb-5" id="image-post-carousel">
                      <div className="card-header bg-danger">
                            <div className=""> 
-                              <img Style="border-radius:50%; width: 50px; height: 50px; align-items: right; border-style: solid; border-color: black;" src={drake} alt="Avatar" align="left" />
+                              <img Style="border-radius:50%; width: 45px; height: 45px; align-items: right; border-style: solid; border-color: black;" src={drake} alt="Avatar" align="left" />
                            </div>
                            <div className = "" id="poster-info">
                               Drake posted 3 minutes ago
