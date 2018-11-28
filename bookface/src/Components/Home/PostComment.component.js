@@ -5,7 +5,7 @@ import TaylorOne from '../../Assets/TaylorSwift.jpeg';
 import TaylorTwo from '../../Assets/TaylorSwiftTwo.jpg';
 
 export class PostCommentComponent extends React.Component{
-
+  
    render(){
       return(
         <div className="modal fade" id="post-commnet-modal" tabIndex="-1" role="dialog" aria-labelledby="post-commnet-modal-Title" aria-hidden="true">

@@ -1,16 +1,49 @@
 import React from 'react';
 import drake from '../../Assets/drake.jpeg';
+import TaylorOne from '../../Assets/TaylorSwift.jpeg';
+import TaylorTwo from '../../Assets/TaylorSwiftTwo.jpg';
+
 import '../../Include/bootstrap';
 
 export class TextPostComponent extends React.Component{
    
-render(){
+   constructor(props){
+      super(props);
+      
+      this.state = {
+         posts: []
+         
+         }
+      }
+        
+   
+   componentDidMount(){
+      fetch('http://localhost:8088/posts')
+      .then(res => res.json()).then()
+      .then(data => {
+         this.setState({
+               ...this.state,
+               posts: data   
+         })  
+         console.log(data);  
+      })
+      .catch(err => {
+            console.log(err);
+      }); 
+      
+   }
+   
+   render(){
+
    return(
          <div>
             <ul className="list-group">
-               <li> 
-               <div className="card mt-3 mb-5" id="image-post-carousel">
-                     <div className="card-header bg-danger">
+
+
+               {this.state.posts.map((posts, index)=>(
+                  <li> 
+                  <div className="card mt-3 mb-5" id="image-post-carousel">
+                        <div className="card-header bg-danger">
                            <div className=""> 
                               <img Style="border-radius:50%; width: 45px; height: 45px; align-items: right; border-style: solid; border-color: black;" src={drake} alt="Avatar" align="left" />
                            </div>
@@ -20,8 +53,8 @@ render(){
                            </div>
                            <div className="card-body text-center" >
                                  <div>
-                                 <img id="post-image-size"  src=""alt=""/>
-                                 <h5> Bookface the amazing unlike Facebook!</h5>
+                                 <img id="post-image-size"  src={TaylorTwo} alt=""/>
+                                 <h5>{posts.post_body}</h5>
                                  </div>
                            </div>
                            <div className="card-header bg-light  flex-row-sb">
@@ -38,6 +71,7 @@ render(){
                            </div>
                      </div>
                 </li> 
+               ))}
             </ul>
          </div>
       );

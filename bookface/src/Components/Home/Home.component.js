@@ -9,7 +9,7 @@ export class Home extends React.Component {
       return (
         <div>
           <TextPostComponent/>
-          <PicturePostComponent/>
+          {/* <PicturePostComponent/> */}
           <PostCommentComponent/>
         </div>
       )
