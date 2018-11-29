@@ -43,7 +43,7 @@ export class Profile extends React.Component {
             </div>
         </>
 
-        //PM:  add fetch here or place in separate component?
+        //
         // componentDidMount() {
         //     fetch('someurl', {
         //       credentials: 'include'
