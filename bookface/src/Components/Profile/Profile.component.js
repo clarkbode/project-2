@@ -57,6 +57,8 @@ export class Profile extends React.Component {
         //       });
         //   }
 
+    // PM: adding test values for now, will need to add oir main credentials later.
+
     // let albumBucketName = 'BUCKET_NAME';
     // let bucketRegion = 'REGION';
     // let IdentityPoolId = 'IDENTITY_POOL_ID';
