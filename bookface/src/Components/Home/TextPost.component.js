@@ -1,4 +1,6 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {fetchPosts} from '../../Redux/Actions/post.actions'
 import drake from '../../Assets/drake.jpeg';
 import TaylorOne from '../../Assets/TaylorSwift.jpeg';
 import TaylorTwo from '../../Assets/TaylorSwiftTwo.jpg';
@@ -7,40 +9,17 @@ import '../../Include/bootstrap';
 
 export class TextPostComponent extends React.Component{
    
-   constructor(props){
-      super(props);
-      
-      this.state = {
-         posts: []
-         
-         }
-      }
-        
-   
-   componentDidMount(){
-      fetch('http://localhost:8088/posts')
-      .then(res => res.json()).then()
-      .then(data => {
-         this.setState({
-               ...this.state,
-               posts: data   
-         })  
-         console.log(data);  
-      })
-      .catch(err => {
-            console.log(err);
-      }); 
-      
-   }
-   
+    componentDidMount(){
+      this.props.fetchPosts();
+    }
+
+  
    render(){
 
    return(
          <div>
             <ul className="list-group">
-
-
-               {this.state.posts.map((posts, index)=>(
+               {this.props.posts.map((posts, index)=>(
                   <li> 
                   <div className="card mt-3 mb-5" id="image-post-carousel">
                         <div className="card-header bg-danger">
@@ -77,3 +56,16 @@ export class TextPostComponent extends React.Component{
       );
    }
 }
+
+
+const mapStateToProps = (state) => {
+   return{
+      posts: state.posts.posts
+   }
+};
+
+const mapsDispatchToProps = {
+   fetchPosts
+}
+
+export default connect(mapStateToProps, mapsDispatchToProps)(TextPostComponent);

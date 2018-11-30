@@ -5,7 +5,7 @@ import '../../Include/bootstrap.js';
 import '../../logInOut.css';
 import '../../App.css';
 import {SignUpComponent} from '../LogIn/SignUp.component';
-import {RouteComponent} from '../Route/Route.component';
+// import {RouteComponent} from '../Route/Route.component';
 
 export class LogInComponent extends React.Component {
 
