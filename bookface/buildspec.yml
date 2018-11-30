@@ -6,11 +6,11 @@ phases:
     install:
         commands:
             - echo Installing source NPM dependencies...
-            - cd project-2-frontend/bookface/ && npm install
+            - cd bookface/ && npm install
     build:
         commands:
             - echo Build started on `date`
-            - cd project-2-frontend/bookface/ && npm run build
+            - cd bookface/ && npm run build
     post_build:
         commands:
             - echo "$CODEBUILD_BUILD_SUCCEEDING"
