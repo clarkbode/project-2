@@ -16,7 +16,7 @@ export class NavBarComponent extends React.Component{
       <div className="">
             <div className="navbar navbar-light bg-danger flex-row-sb mt-1 mb-1">
                <div className=""> 
-                  <h1>BookFace(BF)</h1> 
+                  <h1>BöökFace(BF)</h1> 
                </div>
                <div> 
                   <img Style="border-radius: 50%; width: 20%; height: 20%; align-items: right; border-style: solid; border-color: black;" src={drake} alt="Avatar" align="right" ></img>

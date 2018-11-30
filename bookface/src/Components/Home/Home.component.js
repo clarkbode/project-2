@@ -9,8 +9,8 @@ export class HomeComponent extends React.Component {
       return (
         <div>
           <TextPostComponent/>
-          {/* <PicturePostComponent/> */}
-          {/* <PostCommentComponent/> */}
+           <PicturePostComponent/>
+          <PostCommentComponent/>
         </div>
       )
     }

@@ -27,7 +27,7 @@ export class TextPostComponent extends React.Component{
                               <img Style="border-radius:50%; width: 45px; height: 45px; align-items: right; border-style: solid; border-color: black;" src={drake} alt="Avatar" align="left" />
                            </div>
                            <div className = "" id="poster-info">
-                              Drake posted 3 minutes ago
+                              
                            </div>
                            </div>
                            <div className="card-body text-center" >
@@ -60,8 +60,11 @@ export class TextPostComponent extends React.Component{
 
 const mapStateToProps = (state) => {
    return{
-      posts: state.posts.posts
+      posts: state.posts.posts,
+      //posterInfo: state.posts.posts.posterInfo
+
    }
+   
 };
 
 const mapsDispatchToProps = {

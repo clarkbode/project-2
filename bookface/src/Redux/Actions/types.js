@@ -1,2 +1,3 @@
-
 export const FETCH_POSTS = 'FETCH_POSTS';
+export const FETCH_POSTER_INFO = 'FETCH_POSTER_INFO';
+export const POST_COMMENT_POST = 'POST_COMMENT_POST';
