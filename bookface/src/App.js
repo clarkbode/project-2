@@ -12,6 +12,7 @@ import { FriendsComponent } from './Components/Friends/Friends.component';
 import { LogOut } from './Components/LogOut/LogOut.component';
 import { Setting } from './Components/Setting/Setting.component';
 import { NavBarComponent } from './Components/Navbar/NavBar.component';
+import {PostCommentComponent} from './Components/Home/PostComment.component';
 
 
 class App extends Component {
@@ -22,6 +23,10 @@ class App extends Component {
           <BrowserRouter>
           <>
               <NavBarComponent/>
+              <div> 
+                <PostCommentComponent/>
+              </div>
+              
               <div className="App">
                   <Switch>
                     <Route path="/home" component={HomeComponent} />

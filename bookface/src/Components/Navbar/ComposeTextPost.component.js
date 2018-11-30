@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../Include/bootstrap';
-
+import {connect} from 'react-redux';
 // **Modal/Popup Posting Text**
 export class ComposeTextPostComponent extends React.Component{
    render(){
@@ -17,7 +17,10 @@ export class ComposeTextPostComponent extends React.Component{
                   <div class="modal-body">
                     <ul className= "list-group list-group-flush" >
                         <li className="list-group-item flex-row-sb">
-                          <textarea className="form-control" type="text" rows="1" id="posting-text-modal"></textarea>
+                          <input className="form-control" type="text" rows="1" id="posting-text-modal"
+                          value={this.props.inputComment}
+                          onChange={this.props.inputChanged}
+                          >{this.props.inputComment}</input>
                         </li> 
                     </ul>
                   </div>
@@ -30,3 +33,22 @@ export class ComposeTextPostComponent extends React.Component{
       );
    }
 }
+
+
+const mapStateToProps = (state) => {
+    return {
+      inputComment: state.inputComment
+    }
+}
+
+const mapDispatchToProps = (dispatch)=>{
+    return {
+      inputChanged: (evt) => {
+        console.log('Changed!', evt.target.value);
+        const action = {type: ''}
+      }
+    }
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ComposeTextPostComponent);
