@@ -15,7 +15,7 @@ export const fetchPosts = () => (dispatch) => {
    // }) 
 
    console.log("I'm called!");
-         fetch('http://localhost:8088/posts')
+         fetch('http://bookfaceapi-env.mbs3j2imdu.us-east-2.elasticbeanstalk.com/posts')
          .then(res => res.json())
          .then(posts => {
             console.log("dispatching")
@@ -35,7 +35,7 @@ export const composePostFetch = () => (dispatch)=> {
 
 
 export const friendsListFetch = () => (dispatch) => {
-   fetch('http://localhost:8088/users/id/1')
+   fetch('http://bookfaceapi-env.mbs3j2imdu.us-east-2.elasticbeanstalk.com/users/1')
       .then(res => res.json())
       .then(friendsList => {
          console.log("dispatching")

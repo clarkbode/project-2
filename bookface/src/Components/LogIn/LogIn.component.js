@@ -38,8 +38,41 @@ export class LogInComponent extends React.Component {
          password: this.state.password
       }
    }
+
+   submitTest = (e) => {
+      console.log("SUBMIT!");
+      e.preventDefault();
+      let cred = this.state;
+      fetch('http://bookfaceapi-env.mbs3j2imdu.us-east-2.elasticbeanstalk.com/users/findByCred/user/' + this.state.username + 
+      '/pass/' + this.state.password, {
+        method: 'POST',
+      //   body: JSON.stringify(cred),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        credentials: 'include'
+      })
+      .then(res => {
+        if (res.status === 201) {
+         //  this.props.history.push('user/home');
+         console.log(res.status);
+         console.log("IT'S GOOD!");
+         this.props.history.push('/home');
+        }
+        else
+        {
+           console.log(res.status);
+           console.log("WRONG!");
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      })
+   
+    }
+
   
-   render(){
+   render() {
    return(
       <> 
          <SignUpComponent/>
@@ -71,8 +104,8 @@ export class LogInComponent extends React.Component {
                            <label for="lg_remember">remember</label>
                         </div> */}
                         <div className ="mt-4 login-btn" Style="mr-auto">
-                           <button  className="btn btn-danger" 
-                           ><Link to="/routesComponent"> Submit </Link>
+                           <button  className="btn btn-danger" onClick={this.submitTest}> submit
+                            {/* <Link to="/routesComponent"> Submit </Link> */}
                            </button>
                         </div>
                      </div>
