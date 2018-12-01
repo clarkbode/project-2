@@ -8,12 +8,11 @@ import {store} from './Redux/Store';
 
 import  { HomeComponent }  from './Components/Home/Home.component';
 import { Profile } from './Components/Profile/Profile.component';
-import { FriendsComponent } from './Components/Friends/Friends.component';
+import  FriendsComponent  from './Components/Friends/Friends.component';
 import { LogOut } from './Components/LogOut/LogOut.component';
 import { Setting } from './Components/Setting/Setting.component';
 import { NavBarComponent } from './Components/Navbar/NavBar.component';
 import {PostCommentComponent} from './Components/Home/PostComment.component';
-
 
 class App extends Component {
   
@@ -26,18 +25,17 @@ class App extends Component {
               <div> 
                 <PostCommentComponent/>
               </div>
-              
-              <div className="App">
-                  <Switch>
-                    <Route path="/home" component={HomeComponent} />
-                    <Route path="/profile" component={Profile} />
-                    <Route path="/friends" component={FriendsComponent} />
-                    <Route path="/logout" component={LogOut} />
-                    <Route path="/setting" component={Setting} /> 
-                       {/* default */}
-                    <Route component={HomeComponent} />
-                  </Switch>
-              </div>
+                <div className="App">
+                    <Switch>
+                      <Route path="/home" component={HomeComponent} />
+                      <Route path="/profile" component={Profile} />
+                      <Route path="/friends" component={FriendsComponent} />
+                      <Route path="/logout" component={LogOut} />
+                      <Route path="/setting" component={Setting} /> 
+                        {/* default */}
+                      <Route component={HomeComponent} />
+                    </Switch>
+                </div>
            </>
           </BrowserRouter>
           </Provider>
