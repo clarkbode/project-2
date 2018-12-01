@@ -8,7 +8,8 @@ export class ProfileUpdate extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputfield: ''
+      inputfield: '',
+      name: ''
     }; 
     this.handleClick = this.handleClick.bind(this);
     this.updateInputValue = this.updateInputValue.bind(this);
@@ -20,8 +21,10 @@ export class ProfileUpdate extends React.Component {
     e.preventDefault();
     console.log("trying to add picture url");
     console.log("value of input field : " + this.state.inputfield);
-    let file = this.state.inputfield;
-    console.log(file); 
+    let files = this.state.inputfield;
+    let file = files[0];
+    let fileName = file.name;
+    console.log(file);
     let albumBucketName = 'project2-test-bucket';
 
     // Initialize the Amazon Cognito credentials provider
@@ -37,16 +40,9 @@ export class ProfileUpdate extends React.Component {
 
     function AddPhoto() {
     console.log("Add to s3 called");
-    //let file = document.getElementById('updateProfilePic').file;
-    
-    
-      if (!file.length) {
-        return alert('Please choose a file to upload first.');
-    }
-    let photoKey = "test.jpeg";
 
       s3.upload({
-          Key: photoKey,
+          Key: fileName,
           Body: file,
           ACL: 'public-read'
       }, function(err, data) {
@@ -74,7 +70,7 @@ export class ProfileUpdate extends React.Component {
 
     let params = {
       Bucket: "project2-test-bucket", 
-      Key: "test.jpeg"
+      Key: "test"
      };
      s3.getObject(params, function(err, data) {
        if (err) console.log(err, err.stack); // an error occurred
@@ -83,17 +79,20 @@ export class ProfileUpdate extends React.Component {
   };
 
    updateInputValue(evt) {
-    console.log("input field updated with " + evt.target.value);
-    this.setState({
-      ...this.state,
-      inputfield: evt.target.value
-    })
-    //this.setState={inputfield: evt.target.value}; 
-    let file = this.state.inputfield;
+    console.log("input field updated with " + evt.target.files);
+    let files = evt.target.files;
+    let file = files[0]
+    let fileName = file.name;
     console.log(file);
+    console.log(fileName)
+;    this.setState({
+      ...this.state,
+      inputfield: evt.target.files
+    })
   } 
 
     render() {
+      //console.log(this.state.inputfield);
       return (
         <div id="divProfileUpdateModal">
             <div className="modal" tabindex="-1" role="dialog" id="profileUpdateModal">
@@ -109,7 +108,7 @@ export class ProfileUpdate extends React.Component {
                     <ul className= "list-group list-group-flush" >
                         <li className="list-group-item flex-row-sb">
                           <form>
-                            <input type="file" accept="image/*" id="updateProfilePic" value={this.state.inputfield} onChange={this.updateInputValue}/>
+                            <input type="file" accept="image/*" id="updateProfilePic" onChange={this.updateInputValue}/>
                             <input type="submit" onClick={this.handleClick} value="Upload"/>
                             <button onClick={this.getPhoto}>Download</button>
                           </form>
