@@ -39,7 +39,6 @@ export class ProfileUpdate extends React.Component {
               </div>
             </div>  
         </div>
-
       )
     }
   }

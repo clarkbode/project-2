@@ -17,8 +17,7 @@ export class FriendsComponent extends React.Component{
       return (
          <div>
             <div className="container mt-3">
-               
-                  <div className="row" id="friend-Info-card">
+               <div className="row" id="friend-Info-card">
                   {this.props.friendsList.map((friendsList, index)=>(
                      <div className="col col-12 col-md-6 col-lg-3 champ-col"> 
                         <div class="card" Style="width: 15rem;">
@@ -30,9 +29,8 @@ export class FriendsComponent extends React.Component{
                            </div>
                         </div>
                      </div>
-                     ))}
-                  </div>
-              
+                  ))}
+               </div>
             </div>
          </div>
       );
@@ -43,9 +41,7 @@ const mapStateToProps = (state) => {
    return{
       friendsList: state.friendsList.friendsList
       //posterInfo: state.posts.posts.posterInfo
-
    }
-   
 };
 
 const mapsDispatchToProps = {
