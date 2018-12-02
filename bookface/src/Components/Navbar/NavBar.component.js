@@ -4,8 +4,8 @@ import '../../Include/bootstrap';
 import drake from '../../Assets/drake.jpeg';
 import {ComposeTextPostComponent} from './ComposeTextPost.component';
 import {PictureUploadComponent} from './PictureUpload.component';
-
-
+import {Provider} from 'react-redux';
+import {store} from '../../Redux/Store';
 
 export class NavBarComponent extends React.Component{
 
@@ -64,8 +64,8 @@ export class NavBarComponent extends React.Component{
                   <a className="btn btn-danger dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   </a>
                   <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <a className="dropdown-item" href="#">Log Out</a>
-                  <a className="dropdown-item" href="#">Setting</a>
+                     <Link to="/login"className="dropdown-item" href="#">Log Out </Link>
+                     <Link to="" className="dropdown-item" href="#">Setting</Link>
                   </div>
                </div>
                </div> 

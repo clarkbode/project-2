@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
-import {TextPostComponent} from './TextPost.component';
-import {PicturePostComponent} from './PicturePost.component';
+import TextPostComponent from './TextPost.component';
+//import {PicturePostComponent} from './PicturePost.component';
 import {PostCommentComponent} from './PostComment.component';
 
 
-export class Home extends React.Component {
+export class HomeComponent extends React.Component {
     render() {
       return (
         <div>
           <TextPostComponent/>
-          <PicturePostComponent/>
+          {/* <PicturePostComponent/> */}
           <PostCommentComponent/>
         </div>
       )
     }
   }
+
+  export default{HomeComponent};

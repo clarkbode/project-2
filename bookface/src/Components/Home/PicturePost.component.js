@@ -7,7 +7,8 @@ import James from '../../Assets/Sketch.jpg';
 
 export class PicturePostComponent extends React.Component{
    
-   render(){
+    render(){
+        
       return(
           <div>  
           <ul className="list-group">
