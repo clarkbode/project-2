@@ -7,22 +7,22 @@ import NoPhotoSelected from '../../Assets/NoPhotoSelectediOS_2x.png';
 export class PictureUploadComponent extends React.Component{
    render(){
       return(
-          <div class="modal" tabindex="-1" role="dialog" id="upload-picture-modal">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title">Upload Picture</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <div className="modal" tabindex="-1" role="dialog" id="upload-picture-modal">
+                <div className="modal-dialog" role="document">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <h5 className="modal-title">Upload Picture</h5>
+                      <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                    <div class="modal-body">
+                    <div className="modal-body">
                       <div className="card" Style="width: 16rem;">
                         <img className="card-img-top" src={NoPhotoSelected} alt=""/>
-                          <div class="card-body">
+                          <div className="card-body">
                             <form>
-                              <div class="form-group ">
-                                  <input type="file" class="" id="exampleFormControlFile1"/>
+                              <div className="form-group ">
+                                  <input type="file" className="" id="exampleFormControlFile1"/>
                               </div>
                             </form>
                           </div>
@@ -35,8 +35,8 @@ export class PictureUploadComponent extends React.Component{
                           </ul>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-danger" data-dismiss="modal">Upload</button>
+                    <div className="modal-footer">
+                      <button type="button" className="btn btn-danger" data-dismiss="modal">Upload</button>
                     </div>
                   </div>
                 </div>

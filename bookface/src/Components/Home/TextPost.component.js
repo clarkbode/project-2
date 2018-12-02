@@ -57,9 +57,7 @@ export class TextPostComponent extends React.Component{
 
 const mapStateToProps = (state) => {
    return{
-      posts: state.posts.posts,
-      //posterInfo: state.posts.posts.posterInfo
-
+      posts: state.posts.posts
    }
    
 };
