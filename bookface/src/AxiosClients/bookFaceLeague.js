@@ -1,12 +1,12 @@
-import axios from 'axios';
-import { environment } from '../Environment';
+//import axios from 'axios';
+// import { environment } from '../Environment';
 
-const BookFaceClient = axios.create({
-  baseURL: environment.bookFaceContext,
-  headers: {
-    'Content-Type': 'application/json'
-  }
-  // withCredentials: true
-});
+// const BookFaceClient = axios.create({
+//   baseURL: environment.bookFaceContext,
+//   headers: {
+//     'Content-Type': 'application/json'
+//   }
+//   // withCredentials: true
+// });
 
-export default BookFaceClient;
+// export default BookFaceClient;

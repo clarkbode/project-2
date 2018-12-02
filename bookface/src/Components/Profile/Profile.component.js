@@ -7,7 +7,30 @@ import Elon from '../../Assets/elon.jpg';
 
 export class Profile extends React.Component {
 
+
+    constructor(props) {
+        super(props);
+        this.state = {
+          profile: []
+        };
+      }
+
+    componentDidMount(){
+        fetch('http://bookfaceapi-env.mbs3j2imdu.us-east-2.elasticbeanstalk.com/profile/2', {
+          credentials: 'include'
+        })
+        .then(resp => resp.json())
+        .then(data => {
+          this.setState({
+            ...this.state,
+            profile: data
+          });
+          console.log(this.state.profile);
+        })
+      }
+
     render() {
+        console.log(this.state.profile);
       return (
           <>
           <ProfileUpdate/>
@@ -32,8 +55,8 @@ export class Profile extends React.Component {
                                 <div className="col-md-6">
                                     <div className="bio-content">
                                         <h1>THE ELON</h1>
-                                        <p>10/23/2077</p>
-                                        <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h6>
+                                        <p>{this.state.profile.authorBirthdate}</p>
+                                        <h6>{this.state.profile.profileDescription}</h6>
                                         <button className="btn btn-danger" data-toggle="modal" data-target="#profileUpdateModal" >Update</button>
                                     </div>
                                 </div>

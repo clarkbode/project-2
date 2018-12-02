@@ -15,9 +15,15 @@ export class ProfileUpdate extends React.Component {
     }; 
     this.handleClick = this.handleClick.bind(this);
     this.updateInputValue = this.updateInputValue.bind(this);
+    this.updateBdayValue = this.updateBdayValue.bind(this);
+    this.updateDescValue = this.updateDescValue.bind(this);
   }
 
   AWS = require('aws-sdk/dist/aws-sdk-react-native');
+
+  
+
+  
 
   handleClick(e){
     e.preventDefault();
@@ -95,21 +101,23 @@ export class ProfileUpdate extends React.Component {
     })
   } 
 
-  // updateBdayValue(e) {
-  //   e.preventDefault();
-  //   this.setState({
-  //     ...this.state,
-  //     Bday: e.target.value
-  //   })
-  // }
+  updateBdayValue(e) {
+    e.preventDefault();
+    this.setState({
+      ...this.state,
+      Bday: e.target.value
+    })
+  }
 
-  // updateDescValue(e) {
-  //   e.preventDefault();
-  //   this.setState({
-  //     ...this.state,
-  //     Desc: e.target.value
-  //   })
-  // }
+  updateDescValue(e) {
+    e.preventDefault();
+    this.setState({
+      ...this.state,
+      Desc: e.target.value
+    })
+  }
+ 
+
 
   updateProfile(e) {
     e.preventDefault();
@@ -119,11 +127,11 @@ export class ProfileUpdate extends React.Component {
     // let file = files[0]
     // let fileName = file.name;
 
-    let data = {id:"2", birthdate: "1856-07-10", image: "test.jpeg", description:"henlo fren", authorId: "1"};
+    let data = {id:"0", birthdate: "1856-07-10", image: "test.jpeg", description:"henlo fren", authorId: "1"};
 
     fetch('http://bookfaceapi-env.mbs3j2imdu.us-east-2.elasticbeanstalk.com/profile/update',
     {
-      method: 'POST',
+      method: 'PATCH',
       body: JSON.stringify(data),
       headers: {'Content-Type': 'application/json'},
       credentials: 'include'
