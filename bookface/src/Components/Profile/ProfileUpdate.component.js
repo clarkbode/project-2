@@ -9,7 +9,8 @@ export class ProfileUpdate extends React.Component {
     super(props);
     this.state = {
       inputfield: '',
-      name: ''
+      Bday: '',
+      Desc: ''
     }; 
     this.handleClick = this.handleClick.bind(this);
     this.updateInputValue = this.updateInputValue.bind(this);
@@ -68,9 +69,11 @@ export class ProfileUpdate extends React.Component {
     params: {Bucket: 'project2-test-bucket'}
     }); 
 
+    let fileName = "better test.jpeg";
+
     let params = {
       Bucket: "project2-test-bucket", 
-      Key: "test"
+      Key: fileName
      };
      s3.getObject(params, function(err, data) {
        if (err) console.log(err, err.stack); // an error occurred
@@ -91,6 +94,48 @@ export class ProfileUpdate extends React.Component {
     })
   } 
 
+  updateBdayValue(e) {
+    e.preventDefault();
+    this.setState({
+      ...this.state,
+      Bday: e.target.files
+    })
+  }
+
+  updateDescValue(e) {
+    e.preventDefault();
+    this.setState({
+      ...this.state,
+      Desc: e.target.files
+    })
+  }
+
+  updateProfile(e) {
+    e.preventDefault();
+    console.log("Update Called");
+
+    // let files = this.state.inputfield;
+    // let file = files[0]
+    // let fileName = file.name;
+
+    let data = {authorBirthdate: "1856-07-10", profileImage: "test.jpeg", profileDescription:"henlo fren", authorId: "1"};
+
+    fetch('http://bookfaceapi-env.mbs3j2imdu.us-east-2.elasticbeanstalk.com/profile/add',
+    {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: {'Content-Type': 'application/json'},
+      credentials: 'include'
+    })
+      .then(function(response) {
+        console.log(response);
+      return response.json();
+    })
+      .then(function(myJson) {
+      console.log(JSON.stringify(myJson));
+    }); 
+  }
+
     render() {
       //console.log(this.state.inputfield);
       return (
@@ -109,23 +154,20 @@ export class ProfileUpdate extends React.Component {
                         <li className="list-group-item flex-row-sb">
                           <form>
                             <input type="file" accept="image/*" id="updateProfilePic" onChange={this.updateInputValue}/>
-                            <input type="submit" onClick={this.handleClick} value="Upload"/>
-                            <button onClick={this.getPhoto}>Download</button>
+                            <input class="btn btn-danger" type="submit" onClick={this.handleClick} value="Upload"/>
                           </form>
                         </li> 
+                         
                         <li className="list-group-item flex-row-sb">
-                          <textarea className="form-control" type="text" rows="1" id="profile-name-modal" placeholder="Name"></textarea>
-                        </li> 
-                        <li className="list-group-item flex-row-sb">
-                          <textarea className="form-control" type="text" rows="1" id="profile-birthday-modal" placeholder="Birthday"></textarea>
+                          <textarea className="form-control" type="text" rows="1" id="profile-birthday-modal" placeholder="Birthday" onChange={this.updateBdayValue}></textarea>
                         </li>
                         <li className="list-group-item flex-row-sb">
-                          <textarea className="form-control" type="text" rows="1" id="profile-description-modal"placeholder="Description"></textarea>
+                          <textarea className="form-control" type="text" rows="1" id="profile-description-modal"placeholder="Description" onChange={this.updateDescValue}></textarea>
                         </li>
                     </ul>
                   </div>
                   <div className="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Update</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" onClick={this.updateProfile}>Update</button>
                   </div>
                 </div>
               </div>
