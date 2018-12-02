@@ -13,6 +13,7 @@ import { LogOut } from './Components/LogOut/LogOut.component';
 import { Setting } from './Components/Setting/Setting.component';
 import { NavBarComponent } from './Components/Navbar/NavBar.component';
 import {PostCommentComponent} from './Components/Home/PostComment.component';
+import { LogInComponent } from './Components/LogIn/LogIn.component';
 
 //This is a comment from paul
 class App extends Component {
@@ -31,7 +32,8 @@ class App extends Component {
                       <Route path="/home" component={HomeComponent} />
                       <Route path="/profile" component={Profile} />
                       <Route path="/friends" component={FriendsComponent} />
-                      <Route path="/logout" component={LogOut} />
+                      <Route path="/logout" component={LogInComponent} />
+                      <Route path="/login" component={LogInComponent} />
                       <Route path="/setting" component={Setting} /> 
                         {/* default */}
                       <Route component={HomeComponent} />
