@@ -1,7 +1,9 @@
 // Paul Martella: Added component to manage user profiles
 
 import React from 'react';
+import ReactDOM from 'react-dom';
 import '../../Include/bootstrap';
+import Elon from '../../Assets/elon.jpg';
 import AWS from 'aws-sdk';
 
 export class ProfileUpdate extends React.Component {
@@ -15,6 +17,8 @@ export class ProfileUpdate extends React.Component {
     }; 
     this.handleClick = this.handleClick.bind(this);
     this.updateInputValue = this.updateInputValue.bind(this);
+    this.updateBdayValue = this.updateBdayValue.bind(this);
+    this.updateDescValue = this.updateDescValue.bind(this);
   }
 
   AWS = require('aws-sdk/dist/aws-sdk-react-native');
@@ -95,21 +99,19 @@ export class ProfileUpdate extends React.Component {
     })
   } 
 
-  // updateBdayValue(e) {
-  //   e.preventDefault();
-  //   this.setState({
-  //     ...this.state,
-  //     Bday: e.target.value
-  //   })
-  // }
+  updateBdayValue(evt) { 
+    this.setState({
+      ...this.state,
+      Bday: evt.target.value
+    })
+  }
 
-  // updateDescValue(e) {
-  //   e.preventDefault();
-  //   this.setState({
-  //     ...this.state,
-  //     Desc: e.target.value
-  //   })
-  // }
+  updateDescValue(evt) { 
+    this.setState({
+      ...this.state,
+      Desc: evt.target.value
+    })
+  }
 
   updateProfile(e) {
     e.preventDefault();
@@ -119,12 +121,12 @@ export class ProfileUpdate extends React.Component {
     // let file = files[0]
     // let fileName = file.name;
 
-    let data = {id:"2", birthdate: "1856-07-10", image: "test.jpeg", description:"henlo fren", authorId: "1"};
+    let data = {id: 2, birthdate: "1856-07-10", image: "test.jpeg", description:"henlo fren", authorId: 1};
 
     fetch('http://bookfaceapi-env.mbs3j2imdu.us-east-2.elasticbeanstalk.com/profile/update',
     {
-      method: 'POST',
-      body: JSON.stringify(data),
+      method: 'PATCH',
+      body: data,
       headers: {'Content-Type': 'application/json'},
       credentials: 'include'
     })
@@ -134,7 +136,41 @@ export class ProfileUpdate extends React.Component {
     })
       .then(function(myJson) {
       console.log(JSON.stringify(myJson));
-    }); 
+      // ReactDOM.render(
+      //   <div id="userProfile">
+      //     <div className="container portfolio">
+      //         <div className="row">
+      //             <div className="col-md-12">
+      //                 <div className="heading">				
+      //             </div>	
+      //         </div>
+      //             <div className="bio-info">
+      //                 <div className="row">
+      //                     <div className="col-md-6">
+      //                         <div className="row">
+      //                             <div className="col-md-12">
+      //                                 <div className="bio-image">
+      //                                 <img className="img-circle" src={Elon} alt="image" />
+      //                                 </div>			
+      //                             </div>
+      //                         </div>	
+      //                     </div>
+      //                     <div className="col-md-6">
+      //                         <div className="bio-content">
+      //                             <h1>ELON's MUSK</h1>
+      //                             <p>Right Now</p>
+      //                             <h6>Dew IT!</h6>
+      //                             <button className="btn btn-danger" data-toggle="modal" data-target="#profileUpdateModal" >Update</button>
+      //                         </div>
+      //                     </div>
+      //                 </div>	
+      //             </div>
+      //         </div>
+      //     </div> 
+      // </div>
+      // );
+    });
+    
   }
 
     render() {
@@ -158,10 +194,10 @@ export class ProfileUpdate extends React.Component {
                           </form>
                         </li>
                         <li className="list-group-item flex-row-sb">
-                          <textarea className="form-control" type="text" rows="1" id="profile-birthday-modal" placeholder="Birthday" value={this.state.updateBdayValue} onChange={this.updateBdayValue}></textarea>
+                          <textarea className="form-control" type="date" rows="1" id="profile-birthday-modal" placeholder="Birthday" value={this.state.BdayValue} onChange={this.updateBdayValue}></textarea>
                         </li>
                         <li className="list-group-item flex-row-sb">
-                          <textarea className="form-control" type="text" rows="1" id="profile-description-modal"placeholder="Description" value={this.state.updateDescValue} onChange={this.updateDescValue}></textarea>
+                          <textarea className="form-control" type="text" rows="1" id="profile-description-modal"placeholder="Description" value={this.state.DescValue} onChange={this.updateDescValue}></textarea>
                         </li>
                     </ul>
                   </div>
