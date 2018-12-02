@@ -6,6 +6,7 @@ import { ProfileUpdate } from './ProfileUpdate.component';
 import Elon from '../../Assets/elon.jpg';
 
 export class Profile extends React.Component {
+
     render() {
       return (
           <>
@@ -43,6 +44,7 @@ export class Profile extends React.Component {
             </div>
         </>
 
+
         //
         // componentDidMount() {
         //     fetch('someurl', {
@@ -57,43 +59,7 @@ export class Profile extends React.Component {
         //       });
         //   }
 
-    // PM: adding test values for now, will need to add oir main credentials later.
-
-    // let albumBucketName = 'BUCKET_NAME';
-    // let bucketRegion = 'REGION';
-    // let IdentityPoolId = 'IDENTITY_POOL_ID';
-
-    // AWS.config.update({
-    //   region: bucketRegion,
-    //   credentials: new AWS.CognitoIdentityCredentials({
-    //     IdentityPoolId: IdentityPoolId
-    //   })
-    // });
-
-    // let s3 = new AWS.S3({
-    //   apiVersion: '2006-03-01',
-    //   params: {Bucket: albumBucketName}
-    // });     
-
-    // function addPhoto() {
-    //   let file = document.getElementById('photoupload').files;
-    //   if (!file.length) {
-    //     return alert('Please choose a file to upload first.');
-    //   }
-    //   let photoKey = "";
-
-    //   s3.upload({
-    //     Key: photoKey,
-    //     Body: file,
-    //     ACL: 'public-read'
-    //   }, function(err, data) {
-    //     if (err) {
-    //       return alert('There was an error uploading your photo: ', err.message);
-    //     }
-    //     alert('Successfully uploaded photo.');
-    //     viewAlbum(albumName);
-    //   });
-    // }
+    
 
       )
     }
