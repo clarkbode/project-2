@@ -3,10 +3,18 @@ import '../../Include/bootstrap';
 import drake from '../../Assets/drake.jpeg';
 import TaylorOne from '../../Assets/TaylorSwift.jpeg';
 import TaylorTwo from '../../Assets/TaylorSwiftTwo.jpg';
-
+import connect from 'react-redux/lib/connect/connect';
+import {fetchPosts} from '../../Redux/Actions/post.actions'
 export class PostCommentComponent extends React.Component{
   
+  // componentDidMount(){
+  //   this.props.fetchPosts();
+  // }
+    
    render(){
+
+    console.log(this.props);
+ 
       return(
         <div className="modal fade" id="post-commnet-modal" tabIndex="-1" role="dialog" aria-labelledby="post-commnet-modal-Title" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered" role="document">
@@ -70,3 +78,17 @@ export class PostCommentComponent extends React.Component{
       );
    }
 }
+
+const mapStateToProps = (state) => {
+  
+  return{
+    posts: state.posts.posts
+  }
+ 
+}
+
+const mapsDispatchToProps = {
+  fetchPosts
+}
+
+export default connect(mapStateToProps, mapsDispatchToProps)(PostCommentComponent)

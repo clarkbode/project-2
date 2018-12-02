@@ -5,7 +5,7 @@ import '../../Include/bootstrap.js';
 import '../../logInOut.css';
 import '../../App.css';
 import {SignUpComponent} from '../LogIn/SignUp.component';
-// import {RouteComponent} from '../Route/Route.component';
+import {RouteComponent} from '../Route/Route.component';
 
 export class LogInComponent extends React.Component {
 
@@ -42,6 +42,11 @@ export class LogInComponent extends React.Component {
    render(){
    return(
       <> 
+      <BrowserRouter>
+         <div>
+            <Route path="/route" component={RouteComponent}> </Route>
+         </div>
+             
          <SignUpComponent/>
          <div class="text-center" Style="padding:50px 0">
             <div class="logo">Login</div>
@@ -72,7 +77,7 @@ export class LogInComponent extends React.Component {
                         </div> */}
                         <div className ="mt-4 login-btn" Style="mr-auto">
                            <button  className="btn btn-danger" 
-                           ><Link to="/routesComponent"> Submit </Link>
+                           ><Link to="/route"> LogIn </Link> 
                            </button>
                         </div>
                      </div>
@@ -82,7 +87,9 @@ export class LogInComponent extends React.Component {
                   </div>
                </form>
             </div>  
-         </div>   
+         </div>  
+         
+      </BrowserRouter> 
        </>
       );
    }

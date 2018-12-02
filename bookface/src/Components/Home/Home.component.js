@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TextPostComponent from './TextPost.component';
 //import {PicturePostComponent} from './PicturePost.component';
-import {PostCommentComponent} from './PostComment.component';
+import PostCommentComponent from './PostComment.component';
 
 
 export class HomeComponent extends React.Component {
@@ -15,5 +15,3 @@ export class HomeComponent extends React.Component {
       )
     }
   }
-
-  export default{HomeComponent};

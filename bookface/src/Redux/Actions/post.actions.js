@@ -15,27 +15,8 @@ export const fetchPosts = () => (dispatch) => {
       })
       console.log(posts);  
    }) 
-      // console.log("I'm called!");
-      // fetch('http://localhost:8088/posts')
-      // .then(res => res.json())
-      // .then(posts => {
-      //    console.log("dispatching");
-      //    console.log(posts);
-      //    let postSize = Object.keys(posts).length;
-      //    console.log(postSize);
-         
-      //    for(let i = 0; i < postSize; i++){
-      //       let authorId = posts[i].author_id;
-      //       console.log(authorId);
-      //       fetch(`http://localhost:8088/users/${authorId}`)
-      //       .then(res => res.json())
-      //       .then(posts => {
-      //          console.log(posts);
-      //       }
-      //       )
-      //    }
       
-   };
+};
 
 export const composePostFetch = () => (dispatch)=> {
    
@@ -54,6 +35,7 @@ export const friendsListFetch = () => (dispatch) => {
          console.log(friendsList);  
    }) 
 };
+
 
 
 

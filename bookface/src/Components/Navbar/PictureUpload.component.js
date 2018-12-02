@@ -45,3 +45,6 @@ export class PictureUploadComponent extends React.Component{
    }
 
 }
+
+
+

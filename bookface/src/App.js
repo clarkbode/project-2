@@ -21,21 +21,21 @@ class App extends Component {
          <Provider store={store} >  
           <BrowserRouter>
           <>
-              <NavBarComponent/>
-              <div> 
-                <PostCommentComponent/>
+            <NavBarComponent/>
+            <div> 
+              <PostCommentComponent/>
+            </div>
+              <div className="App">
+                  <Switch>
+                    <Route path="/home" component={HomeComponent} />
+                    <Route path="/profile" component={Profile} />
+                    <Route path="/friends" component={FriendsComponent} />
+                    <Route path="/logout" component={LogOut} />
+                    <Route path="/setting" component={Setting} /> 
+                      {/* default */}
+                    <Route component={HomeComponent} />
+                  </Switch>
               </div>
-                <div className="App">
-                    <Switch>
-                      <Route path="/home" component={HomeComponent} />
-                      <Route path="/profile" component={Profile} />
-                      <Route path="/friends" component={FriendsComponent} />
-                      <Route path="/logout" component={LogOut} />
-                      <Route path="/setting" component={Setting} /> 
-                        {/* default */}
-                      <Route component={HomeComponent} />
-                    </Switch>
-                </div>
            </>
           </BrowserRouter>
           </Provider>
