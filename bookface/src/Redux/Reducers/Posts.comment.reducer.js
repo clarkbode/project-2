@@ -5,7 +5,7 @@ const initialState = {
    comments: []
 }
 
-export const postsReducer =  (state = initialState, action) => {
+export const commentsReducer =  (state = initialState, action) => {
    
    console.log("are you at least called!")
    

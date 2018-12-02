@@ -2,11 +2,15 @@ import React from 'react';
 import '../../Include/bootstrap';
 import {connect} from 'react-redux';
 import {fetchPostComments} from '../../Redux/Actions/post.comment.actions'
+import {fetchPosts} from '../../Redux/Actions/post.actions'
 import drake from '../../Assets/drake.jpeg';
-import TaylorOne from '../../Assets/TaylorSwift.jpeg';
-import TaylorTwo from '../../Assets/TaylorSwiftTwo.jpg';
 
 export class PostCommentComponent extends React.Component{
+
+  componentDidMount(){
+    this.props.fetchPostComments();
+    this.props.fetchPosts();
+  }
   
    render(){
       return(
@@ -21,35 +25,15 @@ export class PostCommentComponent extends React.Component{
                   </div> {/* Comment Modal Header */}
                   <div className="modal-body">
                     <ul className="list-group list-group-flush">
-                        <li className="list-group-item ">
-                           <img className="" Style="border-radius:50%; width: 40px; height: 40px; align-items: right; 
-                            border: 1px solid; border-color: black;" src={drake} alt="Avatar" align="left" />
-                           <textarea type="text" rows="2" className="form-control m-auto" id="ip5" readOnly>
-                              You look stunning Taylor as always in that dress!
-                           </textarea>
-                        </li>
-                        <li className="list-group-item">
-                          <img className="" Style="border-radius:50%; width: 40px; height: 40px; align-items: right; 
-                            border: 1px solid; border-color: black;" src={TaylorTwo} alt="Avatar" align="left" />
-                           <textarea type="text" rows="2" className="form-control m-auto" id="ip5" readOnly>
-                              Thank you Drizzy Drake!
-                           </textarea>
-                        </li>
-                        <li className="list-group-item ">
-                            <img className="" Style="border-radius:50%; width: 40px; height: 40px; align-items: right; 
-                            border: 1px solid; border-color: black;" src={TaylorOne} alt="Avatar" align="left" />
-                            <textarea type="text" rows="2" className="form-control m-auto" id="ip5" readOnly>
-                             Shout Out to Revature Associates for this btw #RevatureForever
-                            </textarea> 
-                        </li>
+                    {this.props.comments.map((comment, index)=>(  
                         <li className="list-group-item">
                            <img className="" Style="border-radius:50%; width: 40px; height: 40px; align-items: right; 
                             border: 1px solid; border-color: black;" src={drake} alt="Avatar" align="left" />
                            <textarea type="text" rows="2" className="form-control m-auto" id="ip5" readOnly>
-                            Yes Sister! Shout Out to Revature Associates for this btw #RevatureForever!
-                            I will retweet it too!
+                              {comment.commentBody}
                            </textarea>
                         </li>
+                    ))}
                     </ul>
                     <div>
                       <ul className= "list-group list-group-flush" >
@@ -75,11 +59,13 @@ export class PostCommentComponent extends React.Component{
 
 const mapStateToProps = (state) => {
   return{
-     comments: state.comments.comments
+    posts: state.posts.posts,
+    comments: state.comments.comments
   }
 };
 
 const mapsDispatchToProps = {
+  fetchPosts,
   fetchPostComments
 }
 

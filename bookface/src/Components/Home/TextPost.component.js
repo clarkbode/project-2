@@ -2,20 +2,19 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {fetchPosts} from '../../Redux/Actions/post.actions'
 import drake from '../../Assets/drake.jpeg';
-import TaylorOne from '../../Assets/TaylorSwift.jpeg';
 import TaylorTwo from '../../Assets/TaylorSwiftTwo.jpg';
-
+import {fetchPostComments} from '../../Redux/Actions/post.comment.actions'
 import '../../Include/bootstrap';
 
 export class TextPostComponent extends React.Component{
    
     componentDidMount(){
       this.props.fetchPosts();
+      this.props.fetchPostComments();
     }
 
   
    render(){
-
    return(
          <div>
             <ul className="list-group">
@@ -60,12 +59,14 @@ export class TextPostComponent extends React.Component{
 
 const mapStateToProps = (state) => {
    return{
-      posts: state.posts.posts.data
+      posts: state.posts.posts,
+      comments: state.comments.comments
    }
 };
 
 const mapsDispatchToProps = {
-   fetchPosts
+   fetchPosts,
+   fetchPostComments
 }
 
 export default connect(mapStateToProps, mapsDispatchToProps)(TextPostComponent);

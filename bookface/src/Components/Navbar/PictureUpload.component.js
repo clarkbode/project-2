@@ -17,7 +17,7 @@ export class PictureUploadComponent extends React.Component{
                       </button>
                     </div>
                     <div className="modal-body">
-                      <div className="card" style="width: 16rem;">
+                      <div className="card" Style="width: 16rem;">
                         <img className="card-img-top" src={NoPhotoSelected} alt=""/>
                           <div className="card-body">
                             <form>
