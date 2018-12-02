@@ -11,6 +11,7 @@ import { LogOut } from './Components/LogOut/LogOut.component';
 import { Setting } from './Components/Setting/Setting.component';
 import { NavBarComponent } from './Components/Navbar/NavBar.component';
 
+//This is a comment from paul
 class App extends Component {
   
   render() {

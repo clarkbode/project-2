@@ -9,6 +9,7 @@ export class ProfileUpdate extends React.Component {
     super(props);
     this.state = {
       inputfield: '',
+      name: '',
       Bday: '',
       Desc: ''
     }; 
@@ -94,21 +95,21 @@ export class ProfileUpdate extends React.Component {
     })
   } 
 
-  updateBdayValue(e) {
-    e.preventDefault();
-    this.setState({
-      ...this.state,
-      Bday: e.target.files
-    })
-  }
+  // updateBdayValue(e) {
+  //   e.preventDefault();
+  //   this.setState({
+  //     ...this.state,
+  //     Bday: e.target.value
+  //   })
+  // }
 
-  updateDescValue(e) {
-    e.preventDefault();
-    this.setState({
-      ...this.state,
-      Desc: e.target.files
-    })
-  }
+  // updateDescValue(e) {
+  //   e.preventDefault();
+  //   this.setState({
+  //     ...this.state,
+  //     Desc: e.target.value
+  //   })
+  // }
 
   updateProfile(e) {
     e.preventDefault();
@@ -118,9 +119,9 @@ export class ProfileUpdate extends React.Component {
     // let file = files[0]
     // let fileName = file.name;
 
-    let data = {authorBirthdate: "1856-07-10", profileImage: "test.jpeg", profileDescription:"henlo fren", authorId: "1"};
+    let data = {id:"2", birthdate: "1856-07-10", image: "test.jpeg", description:"henlo fren", authorId: "1"};
 
-    fetch('http://bookfaceapi-env.mbs3j2imdu.us-east-2.elasticbeanstalk.com/profile/add',
+    fetch('http://bookfaceapi-env.mbs3j2imdu.us-east-2.elasticbeanstalk.com/profile/update',
     {
       method: 'POST',
       body: JSON.stringify(data),
@@ -137,7 +138,6 @@ export class ProfileUpdate extends React.Component {
   }
 
     render() {
-      //console.log(this.state.inputfield);
       return (
         <div id="divProfileUpdateModal">
             <div className="modal" tabindex="-1" role="dialog" id="profileUpdateModal">
@@ -156,13 +156,12 @@ export class ProfileUpdate extends React.Component {
                             <input type="file" accept="image/*" id="updateProfilePic" onChange={this.updateInputValue}/>
                             <input class="btn btn-danger" type="submit" onClick={this.handleClick} value="Upload"/>
                           </form>
-                        </li> 
-                         
-                        <li className="list-group-item flex-row-sb">
-                          <textarea className="form-control" type="text" rows="1" id="profile-birthday-modal" placeholder="Birthday" onChange={this.updateBdayValue}></textarea>
                         </li>
                         <li className="list-group-item flex-row-sb">
-                          <textarea className="form-control" type="text" rows="1" id="profile-description-modal"placeholder="Description" onChange={this.updateDescValue}></textarea>
+                          <textarea className="form-control" type="text" rows="1" id="profile-birthday-modal" placeholder="Birthday" value={this.state.updateBdayValue} onChange={this.updateBdayValue}></textarea>
+                        </li>
+                        <li className="list-group-item flex-row-sb">
+                          <textarea className="form-control" type="text" rows="1" id="profile-description-modal"placeholder="Description" value={this.state.updateDescValue} onChange={this.updateDescValue}></textarea>
                         </li>
                     </ul>
                   </div>
